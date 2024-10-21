@@ -1,5 +1,5 @@
 # 飞机大战游戏 | Plane Battle Game
-使用 C++ 实现的一个简单的飞机大战游戏，用于熟悉 C++ 的语法特点。
+### 一个使用 C++ 实现的简单的飞机大战游戏，用于熟悉 C++ 的语法特点。
 
 # 说明
 1. 本项目面向 Windows 平台，使用 MSVC 编译器，使用 CMake 作为项目解决方案。  
@@ -23,7 +23,7 @@
     ```
 
 # 使用的库、API和其他开源内容
-[EasyX Graphics Library for C++](https://easyx.cn/): 是针对 Visual C++ 的免费绘图库，支持 VC6.0 ~ VC2022。  
-[FMOD Core API](https://www.fmod.com/docs/2.00/api/core-guide.html): 一个独立的 API，旨在涵盖声音的基础/原语。  
-[pkq123l/PlaneWar_Cpp](https://github.com/pkq123l/PlaneWar_Cpp): 游戏中的图片和音乐素材来源于此仓库，并做了部分修改。  
-[wordshub/free-font](https://github.com/wordshub/free-font): 大概是2020年最全的免费可商用字体。
+- [EasyX Graphics Library for C++](https://easyx.cn/): 是针对 Visual C++ 的免费绘图库，支持 VC6.0 ~ VC2022。  
+- [FMOD Core API](https://www.fmod.com/docs/2.00/api/core-guide.html): 一个独立的 API，旨在涵盖声音的基础/原语。  
+- [pkq123l/PlaneWar_Cpp](https://github.com/pkq123l/PlaneWar_Cpp): 游戏中的图片和音乐素材来源于此仓库，并做了部分修改。  
+- [wordshub/free-font](https://github.com/wordshub/free-font): 大概是2020年最全的免费可商用字体。
