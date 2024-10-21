@@ -8,7 +8,8 @@ namespace Util
 	HWND window = nullptr;
 	bool isEnd = false;
 	Log logFunc = nullptr;
-	initLogStream initLogStreamFunc = nullptr;
+	InitLogStream initLogStreamFunc = nullptr;
+	ReleaseLogger releaseLogger = nullptr;
 
 	WINDOW_CONFIG windowConfig = preset;
 

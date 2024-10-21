@@ -52,7 +52,13 @@ namespace Util
 	 * @param std::ostream & 输出流
 	 * @return void
 	 */
-	typedef void (*initLogStream)(std::ostream &);
+	typedef void (*InitLogStream)(std::ostream &);
+
+	/**
+	 * @brief 释放日志函数
+	 * @return void
+	 */
+	typedef void (*ReleaseLogger)();
 
 	typedef struct
 	{
@@ -67,11 +73,13 @@ namespace Util
 		640,
 		1};
 
+	extern ReleaseLogger releaseLogger;		// 释放日志函数
+	extern Log logFunc;						// 日志函数
+	extern InitLogStream initLogStreamFunc;	// 初始化日志流函数
+
 	extern int debugFlag;					// 调试标志	0: 不显示调试信息	1: 显示调试信息
 	extern HWND window;						// 窗口句柄
 	extern bool isEnd;						// 游戏是否结束
-	extern Log logFunc;						// 日志函数
-	extern initLogStream initLogStreamFunc;	// 初始化日志流函数
 	extern WINDOW_CONFIG windowConfig;		// 窗口配置
 
 	extern IMAGE gameBg;					// 游戏背景

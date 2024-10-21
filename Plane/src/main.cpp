@@ -97,6 +97,7 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 // 加载Logger.dll
 static void loadLogger()
 {
+	// 加载Logger.dll
 	HMODULE hModule = LoadLibrary(L"Logger.dll");
 	if (hModule == nullptr)
 	{
@@ -104,16 +105,23 @@ static void loadLogger()
 		std::cout << "Error: Cannot load Logger.dll" << std::endl;
 		return;
 	}
+	// 加载Logger.dll中的函数
 	Util::logFunc = (Util::Log)GetProcAddress(hModule, "logFunc");
 	if (Util::logFunc == nullptr)
 	{
-		std::cout << "Error: Cannot load log function in Logger.dll" << std::endl;
+		std::cout << "Error: Cannot load log(const std::string &, const std::string &, LogLevel) function in Logger.dll" << std::endl;
 		return;
 	}
-	Util::initLogStreamFunc = (Util::initLogStream)GetProcAddress(hModule, "initLogStream");
+	Util::initLogStreamFunc = (Util::InitLogStream)GetProcAddress(hModule, "initLogStream");
 	if (Util::initLogStreamFunc == nullptr)
 	{
-		std::cout << "Error: Cannot load initLogStream function in Logger.dll" << std::endl;
+		std::cout << "Error: Cannot load initLogStream(std::ostream &) function in Logger.dll" << std::endl;
+		return;
+	}
+	Util::releaseLogger = (Util::ReleaseLogger)GetProcAddress(hModule, "release");
+	if (Util::releaseLogger == nullptr)
+	{
+		std::cout << "Error: Cannot load release() function in Logger.dll" << std::endl;
 		return;
 	}
 }
@@ -231,5 +239,6 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmd
 	startScreen->stop();
 	delete startScreen;
 	Util::log("Process ended.", "Main");
+	Util::releaseLogger();
 	return 0;
 }
